@@ -1,16 +1,5 @@
-# sneaker_shopping_app
+# Sneaker Shopping App Ui with Flutter
 
-A new Flutter project.
+![sneaker](https://user-images.githubusercontent.com/72824898/182024082-3a8c7ba5-fef4-496b-9942-7e977f3a1bf4.png)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ui design by: https://dribbble.com/shots/15544535-Sneakers-Shopping-App
