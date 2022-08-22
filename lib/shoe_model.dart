@@ -1,17 +1,17 @@
 class Shoe {
-  String title;
-  String subTitle;
-  String price;
-  String imageSrc;
+  final String title;
+  final String subTitle;
+  final String price;
+  final String imageSrc;
 
-  Shoe(
+  const Shoe(
       {required this.title,
       required this.subTitle,
       required this.price,
       required this.imageSrc});
 }
 
-List<Shoe> shoes = [
+const List<Shoe> shoes = [
   Shoe(
       imageSrc: 'assets/image/image1.png',
       title: 'Adidas',

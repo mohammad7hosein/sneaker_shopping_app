@@ -17,7 +17,8 @@ class _FilterButtonState extends State<FilterButton> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
+      borderRadius: BorderRadius.circular(16),
       onTap: () {
         setState(() {
           isSelected = !isSelected;
@@ -33,8 +34,9 @@ class _FilterButtonState extends State<FilterButton> {
                 child: Text(
                   widget.text!,
                   style: TextStyle(
-                      color: isSelected ? Colors.white : Colors.black87,
-                      fontWeight: FontWeight.bold),
+                    color: isSelected ? Colors.white : Colors.black87,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               )
             : IconButton(
@@ -43,7 +45,8 @@ class _FilterButtonState extends State<FilterButton> {
                     isSelected = !isSelected;
                   });
                 },
-                icon: widget.icon!),
+                icon: widget.icon!,
+              ),
         decoration: BoxDecoration(
             color: isSelected
                 ? Theme.of(context).colorScheme.secondary
@@ -57,13 +60,7 @@ class _FilterButtonState extends State<FilterButton> {
                 ), //Offset
                 blurRadius: 10.0,
                 spreadRadius: 2.0,
-              ), //BoxShadow
-              BoxShadow(
-                color: Colors.white,
-                offset: Offset(0.0, 0.0),
-                blurRadius: 0.0,
-                spreadRadius: 0.0,
-              ), //BoxShadow
+              )
             ],
             borderRadius: const BorderRadius.all(Radius.circular(16))),
       ),

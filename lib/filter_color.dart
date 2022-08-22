@@ -14,7 +14,8 @@ class _FilterColorState extends State<FilterColor> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
+      borderRadius: BorderRadius.circular(16),
       onTap: () {
         setState(() {
           isSelected = !isSelected;
@@ -31,30 +32,23 @@ class _FilterColorState extends State<FilterColor> {
           ),
         ),
         decoration: BoxDecoration(
-            border: Border.all(
-                width: 2,
-                color: isSelected
-                    ? Theme.of(context).colorScheme.secondary
-                    : Colors.white),
-            color: Colors.white,
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.black12,
-                offset: Offset(
-                  5.0,
-                  5.0,
-                ), //Offset
-                blurRadius: 10.0,
-                spreadRadius: 2.0,
-              ), //BoxShadow
-              BoxShadow(
-                color: Colors.white,
-                offset: Offset(0.0, 0.0),
-                blurRadius: 0.0,
-                spreadRadius: 0.0,
-              ), //BoxShadow
-            ],
-            borderRadius: BorderRadius.circular(16)),
+          border: Border.all(
+            width: 2,
+            color: isSelected
+                ? Theme.of(context).colorScheme.secondary
+                : Colors.white,
+          ),
+          color: Colors.white,
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black12,
+              offset: Offset(5.0, 5.0), //Offset
+              blurRadius: 10.0,
+              spreadRadius: 2.0,
+            )
+          ],
+          borderRadius: BorderRadius.circular(16),
+        ),
       ),
     );
   }

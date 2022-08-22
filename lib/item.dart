@@ -16,7 +16,8 @@ class _ItemState extends State<Item> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
+      borderRadius: BorderRadius.circular(16),
       onTap: () {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => DetailScreen(widget.shoe)));
@@ -24,7 +25,9 @@ class _ItemState extends State<Item> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 8),
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(16)),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -45,7 +48,10 @@ class _ItemState extends State<Item> {
                     color: isLiked ? Colors.red : Colors.grey,
                   ),
                 ),
-                Icon(Icons.add, color: Theme.of(context).colorScheme.secondary)
+                Icon(
+                  Icons.add,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
               ],
             ),
             Expanded(
@@ -78,9 +84,10 @@ class _ItemState extends State<Item> {
               child: Text(
                 widget.shoe.price,
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.secondary,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
+                  color: Theme.of(context).colorScheme.secondary,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],
