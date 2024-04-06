@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:sneaker_shopping_app/filterButton.dart';
-import 'package:sneaker_shopping_app/filter_color.dart';
-import 'package:sneaker_shopping_app/shoe_model.dart';
+import 'package:sneaker_shop_app_animated/filterButton.dart';
+import 'package:sneaker_shop_app_animated/filter_color.dart';
+import 'package:sneaker_shop_app_animated/shoe_model.dart';
 
 class DetailScreen extends StatefulWidget {
   final Shoe shoe;
@@ -32,7 +33,7 @@ class _DetailScreenState extends State<DetailScreen>
     );
   }
 
-  Expanded buildDetails(BuildContext context) {
+  buildDetails(BuildContext context) {
     return Expanded(
       flex: 4,
       child: Container(
@@ -50,26 +51,81 @@ class _DetailScreenState extends State<DetailScreen>
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                buildTitleAndSubTitle(),
+                Animate(
+                  effects: [
+                    const FadeEffect(curve: Curves.easeInOut),
+                    SlideEffect(
+                      duration: 500.milliseconds,
+                      curve: Curves.easeInOut,
+                      begin: const Offset(0, 0.3),
+                      end: Offset.zero,
+                    ),
+                  ],
+                  delay: 700.milliseconds,
+                  child: buildTitleAndSubTitle(),
+                ),
                 const SizedBox(height: 24),
-                buildSizes(),
+                Animate(
+                  effects: [
+                    const FadeEffect(curve: Curves.easeInOut),
+                    SlideEffect(
+                      duration: 500.milliseconds,
+                      curve: Curves.easeInOut,
+                      begin: const Offset(0, 0.3),
+                      end: Offset.zero,
+                    ),
+                  ],
+                  delay: 800.milliseconds,
+                  child: buildSizes(),
+                ),
                 const SizedBox(height: 24),
-                buildColors(),
+                Animate(
+                  effects: [
+                    const FadeEffect(curve: Curves.easeInOut),
+                    SlideEffect(
+                      duration: 500.milliseconds,
+                      curve: Curves.easeInOut,
+                      begin: const Offset(0, 0.3),
+                      end: Offset.zero,
+                    ),
+                  ],
+                  delay: 900.milliseconds,
+                  child: buildColors(),
+                ),
                 const SizedBox(height: 42),
-                buildAddToCartButton(context),
+                Animate(
+                  effects: [
+                    const FadeEffect(curve: Curves.easeInOut),
+                    SlideEffect(
+                      duration: 500.milliseconds,
+                      curve: Curves.easeInOut,
+                      begin: const Offset(0, 0.3),
+                      end: Offset.zero,
+                    ),
+                  ],
+                  delay: 1000.milliseconds,
+                  child: buildAddToCartButton(context),
+                ),
               ],
             ),
           ),
         ),
       ),
-    );
+    ).animate().slideY(
+          delay: 200.milliseconds,
+          duration: 500.milliseconds,
+          begin: 1,
+          end: 0,
+        );
   }
 
-  Expanded buildImage() {
-    return Expanded(
-      flex: 2,
-      child: Hero(
-        tag: widget.shoe.imageSrc,
+  buildImage() {
+    return Animate(
+      effects: [
+        FadeEffect(curve: Curves.easeInOut, delay: 700.milliseconds),
+      ],
+      child: Expanded(
+        flex: 2,
         child: Image(
           image: AssetImage(widget.shoe.imageSrc),
         ),
@@ -107,13 +163,13 @@ class _DetailScreenState extends State<DetailScreen>
   Widget buildAddToCartButton(BuildContext context) {
     return InkWell(
       onTap: () {},
-      borderRadius: BorderRadius.circular(24),
+      borderRadius: BorderRadius.circular(30),
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 12),
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.secondary,
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(30),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -128,7 +184,7 @@ class _DetailScreenState extends State<DetailScreen>
               ),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
@@ -137,16 +193,13 @@ class _DetailScreenState extends State<DetailScreen>
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: SvgPicture.asset('assets/icon/shop.svg'),
-                  ),
-                  const SizedBox(width: 2),
+                  SvgPicture.asset('assets/icon/shop.svg'),
+                  const SizedBox(width: 10),
                   const Text(
                     "Add to cart",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 14,
+                      fontSize: 16,
                     ),
                   )
                 ],
@@ -159,10 +212,10 @@ class _DetailScreenState extends State<DetailScreen>
   }
 
   Column buildColors() {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Color',
           style: TextStyle(
             color: Colors.grey,
@@ -170,11 +223,11 @@ class _DetailScreenState extends State<DetailScreen>
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             SizedBox(width: 10),
             FilterColor(Colors.red),
             SizedBox(width: 20),
@@ -189,10 +242,10 @@ class _DetailScreenState extends State<DetailScreen>
   }
 
   Column buildSizes() {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Size',
           style: TextStyle(
             color: Colors.grey,
@@ -200,14 +253,14 @@ class _DetailScreenState extends State<DetailScreen>
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.all(10),
+          padding: EdgeInsets.all(10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               FilterButton('US6', null, true),
               SizedBox(width: 10),
               FilterButton('US7', null, true),

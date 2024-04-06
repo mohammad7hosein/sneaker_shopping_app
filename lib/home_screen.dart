@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:sneaker_shopping_app/shoe_model.dart';
+import 'package:sneaker_shop_app_animated/shoe_model.dart';
 
 import 'filterButton.dart';
 import 'item.dart';

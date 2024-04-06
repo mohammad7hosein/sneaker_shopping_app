@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sneaker_shopping_app/detail_screen.dart';
-import 'package:sneaker_shopping_app/shoe_model.dart';
+import 'package:sneaker_shop_app_animated/detail_screen.dart';
+import 'package:sneaker_shop_app_animated/shoe_model.dart';
 
 class Item extends StatefulWidget {
   final Shoe shoe;
